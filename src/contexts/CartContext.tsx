@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 interface CartItem {
-  id?: number; // для БД
+  id?: number;
   product_id: number;
   name: string;
   price: number;
@@ -259,3 +259,4 @@ export function useCart() {
   }
   return context;
 }
+
