@@ -31,7 +31,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Проверяем авторизацию при загрузке
+
   useEffect(() => {
     checkAuth();
   }, []);
@@ -54,7 +54,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Загрузка из localStorage (для неавторизованных)
+
   const loadCartFromLocalStorage = () => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -62,7 +62,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Загрузка из БД (для авторизованных)
+
   const loadCartFromDB = async () => {
     try {
       const response = await fetch("/api/cart");
@@ -75,18 +75,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Сохранение в localStorage
+
   const saveToLocalStorage = (newCart: CartItem[]) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
-  // Синхронизация при входе (объединение localStorage с БД)
+
   const syncCartOnLogin = async () => {
     const localCart = localStorage.getItem("cart");
     if (localCart) {
       const items: CartItem[] = JSON.parse(localCart);
 
-      // Добавляем товары из localStorage в БД
+
       for (const item of items) {
         try {
           await fetch("/api/cart", {
@@ -99,7 +99,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         }
       }
 
-      // Очищаем localStorage
+
       localStorage.removeItem("cart");
     }
 
@@ -107,7 +107,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     await loadCartFromDB();
   };
 
-  // Добавить товар в корзину
+
   const addToCart = async (product: Omit<CartItem, "quantity" | "id">) => {
     if (isAuthenticated) {
       try {
@@ -227,7 +227,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return cart.reduce((sum, item) => sum + item.quantity, 0);
   };
 
-  // Общая стоимость
+
   const getTotalPrice = () => {
     return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   };
@@ -259,4 +259,5 @@ export function useCart() {
   }
   return context;
 }
+
 
