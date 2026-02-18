@@ -22,7 +22,7 @@ export default function Footer() {
                 <Link href="/menu">Меню</Link>
               </li>
               <li>
-                <Link href="/orders">Мои заказы</Link>
+                <Link href="/cart">Мои заказы</Link>
               </li>
               <li>
                 <Link href="/about">О нас</Link>
@@ -97,3 +97,4 @@ export default function Footer() {
     </footer>
   );
 }
+
