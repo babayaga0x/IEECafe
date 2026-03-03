@@ -1,5 +1,15 @@
-# ☕ MVEKafe
+# ☕ MVEKafe - MVEK College Buffet
 
+The official website for MVEKafe - the buffet of MVEK (International East European College).  
+Built with Next.js 15, React 19, and TypeScript.
+---
+
+## 📌 Description
+
+**MVEKafe** is the college buffet of **MVEK** (International East European College).  
+The website presents the buffet's menu, working hours, location on campus, and contact information - giving students and staff a quick and convenient way to find out what's on offer today.
+
+---
 Cafe web application built with [Next.js](https://nextjs.org/).
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
