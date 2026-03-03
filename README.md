@@ -1,108 +1,126 @@
-# МВЕКафе
+# ☕ MVEKafe
 
-## Запуск проекта
+Cafe web application built with [Next.js](https://nextjs.org/).
 
-### Разработка (Development)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)
+![Biome](https://img.shields.io/badge/Biome-1.9-60A5FA?style=flat-square)
 
-Сначала запустите сервер разработки:
+## ✨ Features
+
+- 🖼️ **Static Pages** — home, about, menu, etc.
+- 🔄 **API Routes** — `/api/products`, `/api/users/login`, etc.
+- 🖼️ **Media Files** — image support (.webp and more)
+- 📝 **Linting & Formatting** — automatic code checks with Biome
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Next.js 15 | Framework |
+| React 19 | UI Library |
+| TypeScript | Type Safety |
+| Biome | Linting & Formatting |
+
+## 🚀 Quick Start
+
+### Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+### Development Mode
 
 ```bash
 npm run dev
-# или
+# or
 yarn dev
-# или
+# or
 pnpm dev
-# или
+# or
 bun dev
 ```
 
-Откройте [http://localhost:3000](http://localhost:3000) в браузере, чтобы увидеть результат.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-### Продакшн-билд (Production Build)
+### Production Build
 
-1. Сборка приложения:
+1. Build the application:
 
 ```bash
 npm run build
-# или
+# or
 yarn build
-# или
+# or
 pnpm build
+# or
+bun build
 ```
 
-2. Запуск собранного приложения:
+2. Run the production server:
 
-**На Windows (PowerShell):**
+**Windows (PowerShell):**
 
 ```powershell
 $env:PORT=5000; npm start
 ```
 
-**На Linux/macOS:**
+**Linux / macOS:**
 
 ```bash
 PORT=5000 npm start
 ```
 
-3. Откройте [http://localhost:5000](http://localhost:5000) в браузере, чтобы проверить продакшн-версию.
+Open [http://localhost:5000](http://localhost:5000).
 
 ---
 
-### Проверка
+## 📋 Available Scripts
 
-* Статические страницы (`/`, `/about`, `/menu` и т.д.)
-* Динамические API роуты (`/api/products`, `/api/users/login` и т.д.)
-* Картинки и медиа-файлы, например `.webp`
-* Логи ошибок в терминале
-
----
-
-### Линтинг и форматирование (Biome)
-
-Для проверки кода и автоформатирования используется **Biome**.
-
-1. Проверка линтинга:
-
-```bash
-npm run lint
-# или
-yarn lint
-# или
-pnpm lint
-```
-
-2. Автоформатирование кода:
-
-```bash
-npm run format
-# или
-yarn format
-# или
-pnpm format
-```
-
-**Файл конфигурации:** `biome.json`
-
-* Включает форматирование, линтинг, организацию импортов
-* Поддерживает Next.js и React
-* Учитывает `.gitignore` и исключает папки сборки (`.next`, `node_modules`, `dist`, `build`)
+| Command | Description |
+|---------|-------------|
+| `dev` | Start development server |
+| `build` | Create production build |
+| `start` | Run production server |
+| `lint` | Check code for errors |
+| `format` | Auto-format code |
 
 ---
 
-### Рекомендации
+## 🔧 Configuration
 
-* Убедитесь, что у вас **только один lockfile** (`package-lock.json` или `yarn.lock`) в проекте.
-* При необходимости обновите пакет для браузерных данных:
+This project uses [Biome](https://biomejs.dev/) for:
+
+- Code formatting
+- Linting
+- Import organization
+
+Config file: [`biome.json`](biome.json)
+
+---
+
+## 📌 Recommendations
+
+> ⚠️ Keep **only one lockfile** in the project (`package-lock.json` or `yarn.lock`).
+
+If needed, update the browser data package:
 
 ```bash
 npm i baseline-browser-mapping@latest -D
 ```
 
-* Всегда проверяйте билд перед деплоем, чтобы убедиться, что:
+---
 
-  * Все страницы рендерятся корректно
-  * API роуты работают
-  * Медиа-файлы (например `.webp`) загружаются правильно
+## 📄 License
 
+MIT
