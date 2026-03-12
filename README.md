@@ -121,7 +121,8 @@ Config file: [`biome.json`](biome.json)
 
 ## 📌 Recommendations
 
-> ⚠️ Keep **only one lockfile** in the project (`package-lock.json` or `yarn.lock`).
+> [!WARNING]
+Keep **only one lockfile** in the project (`package-lock.json` or `yarn.lock`).
 
 If needed, update the browser data package:
 
