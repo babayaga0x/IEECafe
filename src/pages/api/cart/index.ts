@@ -13,12 +13,12 @@ export default async function handler(
       const token = req.cookies.token;
 
       if (!token) {
-        return res.status(401).json({ error: "Не авторизован" });
+        return res.status(401).json({ error: "dont auth" });
       }
 
       const decoded = jwt.verify(token, JWT_SECRET) as any;
 
-      // Нахождение или создание корзины
+      // find and create cart
       const [orders]: any = await db.execute(
         "SELECT id FROM orders WHERE user_id = ? AND status = 'cart' LIMIT 1",
         [decoded.userId],
@@ -35,7 +35,7 @@ export default async function handler(
         orderId = orders[0].id;
       }
 
-      // Получение товаров
+      // accept products
       const [cartItems] = await db.execute(
         `SELECT
           oi.id,
@@ -53,15 +53,15 @@ export default async function handler(
 
       return res.status(200).json({ cartItems });
     } catch (error) {
-      console.error("Ошибка получения корзины:", error);
-      return res.status(500).json({ error: "Ошибка сервера" });
+      console.error("Error getting cart:", error);
+      return res.status(500).json({ error: "error server" });
     }
   } else if (req.method === "POST") {
     try {
       const token = req.cookies.token;
 
       if (!token) {
-        return res.status(401).json({ error: "Не авторизован" });
+        return res.status(401).json({ error: "dont auth" });
       }
 
       const decoded = jwt.verify(token, JWT_SECRET) as any;
@@ -69,22 +69,21 @@ export default async function handler(
       const { productId } = req.body;
 
       if (!productId) {
-        return res.status(400).json({ error: "ID товара обязателен" });
+        return res.status(400).json({ error: "IDs produst must have" });
       }
 
-      // Получение товара
+      // accept product
       const [products]: any = await db.execute(
         "SELECT id, price FROM products WHERE id = ?",
         [productId],
       );
 
       if (products.length === 0) {
-        return res.status(404).json({ error: "Товар не найден" });
+        return res.status(404).json({ error: "product doesnt find" });
       }
 
       const product = products[0];
 
-      // Нахождение или создание корзины
       const [orders]: any = await db.execute(
         "SELECT id FROM orders WHERE user_id = ? AND status = 'cart' LIMIT 1",
         [decoded.userId],
@@ -101,7 +100,6 @@ export default async function handler(
         orderId = orders[0].id;
       }
 
-      // Проверка товара
       const [existingItems]: any = await db.execute(
         "SELECT id, quantity FROM order_items WHERE order_id = ? AND product_id = ?",
         [orderId, productId],
@@ -127,10 +125,10 @@ export default async function handler(
         [orderId, orderId],
       );
 
-      return res.status(200).json({ message: "Товар добавлен в корзину" });
+      return res.status(200).json({ message: "Product has been added" });
     } catch (error) {
-      console.error("Ошибка добавления в корзину:", error);
-      return res.status(500).json({ error: "Ошибка сервера" });
+      console.error("adding error:", error);
+      return res.status(500).json({ error: "server error" });
     }
   } else {
     res.setHeader("Allow", ["GET", "POST"]);

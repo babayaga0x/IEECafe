@@ -31,7 +31,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-
   useEffect(() => {
     checkAuth();
   }, []);
@@ -54,14 +53,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-
   const loadCartFromLocalStorage = () => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       setCart(JSON.parse(savedCart));
     }
   };
-
 
   const loadCartFromDB = async () => {
     try {
@@ -71,21 +68,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         setCart(data.cartItems || []);
       }
     } catch (error) {
-      console.error("Ошибка загрузки корзины из БД:", error);
+      console.error("Error loading basket from database:", error);
     }
   };
-
 
   const saveToLocalStorage = (newCart: CartItem[]) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
-
   const syncCartOnLogin = async () => {
     const localCart = localStorage.getItem("cart");
     if (localCart) {
       const items: CartItem[] = JSON.parse(localCart);
-
 
       for (const item of items) {
         try {
@@ -95,10 +89,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             body: JSON.stringify({ productId: item.product_id }),
           });
         } catch (error) {
-          console.error("Ошибка синхронизации:", error);
+          console.error("Synchronization error:", error);
         }
       }
-
 
       localStorage.removeItem("cart");
     }
@@ -106,7 +99,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setIsAuthenticated(true);
     await loadCartFromDB();
   };
-
 
   const addToCart = async (product: Omit<CartItem, "quantity" | "id">) => {
     if (isAuthenticated) {
@@ -121,11 +113,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           await loadCartFromDB();
         } else {
           const data = await response.json();
-          alert(data.error || "Ошибка добавления в корзину");
+          alert(data.error || "Error adding to cart");
         }
       } catch (error) {
-        console.error("Ошибка:", error);
-        alert("Ошибка добавления в корзину");
+        console.error("Error:", error);
+        alert("Error adding to cart");
       }
     } else {
       setCart((prev) => {
@@ -161,7 +153,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           await loadCartFromDB();
         }
       } catch (error) {
-        console.error("Ошибка удаления:", error);
+        console.error("Error deleting:", error);
       }
     } else {
       setCart((prev) => {
@@ -190,7 +182,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           await loadCartFromDB();
         }
       } catch (error) {
-        console.error("Ошибка обновления:", error);
+        console.error("Update error:", error);
       }
     } else {
       setCart((prev) => {
@@ -213,10 +205,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         });
 
         if (!response.ok) {
-          console.log("Не удалось очитстить корзину");
+          console.log("Failed to empty the recycle bin");
         }
       } catch (error) {
-        console.error("Ошибка при очистке:", error);
+        console.error("Error while cleaning:", error);
       }
     } else {
       localStorage.removeItem("cart");
@@ -226,7 +218,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const getTotalItems = () => {
     return cart.reduce((sum, item) => sum + item.quantity, 0);
   };
-
 
   const getTotalPrice = () => {
     return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -259,5 +250,3 @@ export function useCart() {
   }
   return context;
 }
-
-

@@ -8,24 +8,24 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-section">
-            <h3 className="footer-title">МВЕКафе</h3>
+            <h3 className="footer-title">MVECafe</h3>
             <p className="footer-text">
-              Вкусная и свежая еда для студентов и преподавателей. Заказывайте
-              онлайн и забирайте в удобное время.
+              Delicious and fresh food for students and teachers. Order online
+              and pick up at a convenient time.
             </p>
           </div>
 
           <div className="footer-section">
-            <h3 className="footer-title">Быстрые ссылки</h3>
+            <h3 className="footer-title">Quick Links</h3>
             <ul className="footer-links">
               <li>
-                <Link href="/menu">Меню</Link>
+                <Link href="/menu">Menu</Link>
               </li>
               <li>
-                <Link href="/cart">Мои заказы</Link>
+                <Link href="/cart">My Orders</Link>
               </li>
               <li>
-                <Link href="/about">О нас</Link>
+                <Link href="/about">About Us</Link>
               </li>
               <li>
                 <Link href="/faq">FAQ</Link>
@@ -34,17 +34,17 @@ export default function Footer() {
           </div>
 
           <div className="footer-section">
-            <h3 className="footer-title">Режим работы</h3>
+            <h3 className="footer-title">Working Hours</h3>
             <ul className="working-hours">
-              <li>Понедельник - Пятница</li>
+              <li>Monday - Friday</li>
               <li className="hours-time">9:00 - 18:00</li>
-              <li className="hours-day">Суббота: Выходной</li>
-              <li className="hours-day">Воскресенье: Выходной</li>
+              <li className="hours-day">Saturday: Closed</li>
+              <li className="hours-day">Sunday: Closed</li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h3 className="footer-title">Контакты</h3>
+            <h3 className="footer-title">Contacts</h3>
             <ul className="contact-list">
               <li className="contact-item">
                 <Phone size={16} />
@@ -57,7 +57,7 @@ export default function Footer() {
               <li className="contact-item">
                 <MapPin size={16} />
                 <span>
-                  Удмуртская Республика, Ижевск, Пушкинская улица, 268Ж
+                  Udmurt Republic, Izhevsk, Pushkinskaya street, 268Zh
                 </span>
               </li>
             </ul>
@@ -65,8 +65,8 @@ export default function Footer() {
             <div className="social-links">
               <a href="https://t.me/mveu_ru" aria-label="Telegram">
                 <svg
-                  width="20"
-                  height="20"
+                  width={20}
+                  height={20}
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
@@ -75,8 +75,8 @@ export default function Footer() {
               </a>
               <a href="https://www.youtube.com/@MVEUtv" aria-label="Youtube">
                 <svg
-                  width="20"
-                  height="20"
+                  width={20}
+                  height={20}
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
@@ -89,12 +89,11 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>
-            &copy; {new Date().getFullYear()} Международный Восточно-Европейский
-            Университет
+            &copy; {new Date().getFullYear()} International East European
+            University
           </p>
         </div>
       </div>
     </footer>
   );
 }
-

@@ -29,18 +29,18 @@ export default async function handler(
   });
 
   form.parse(req, async (err, fields, files) => {
-    if (err) return res.status(500).json({ error: "Ошибка загрузки файла" });
+    if (err) return res.status(500).json({ error: "Error loading file" });
 
     const file = Array.isArray(files.image) ? files.image[0] : files.image;
 
-    if (!file) return res.status(400).json({ error: "Файл не найден" });
+    if (!file) return res.status(400).json({ error: "File not found" });
 
     const fileName = `${Date.now()}_${file.originalFilename}`;
     const newPath = path.join(uploadDir, fileName);
 
     fs.renameSync(file.filepath, newPath);
 
-    // Приводим поля к нужным типам
+    // Convert the fields to the required types
     const name = Array.isArray(fields.name) ? fields.name[0] : fields.name;
     const priceStr = Array.isArray(fields.price)
       ? fields.price[0]
@@ -49,7 +49,7 @@ export default async function handler(
     if (!name || !priceStr)
       return res
         .status(400)
-        .json({ error: "Поля name или price не заполнены" });
+        .json({ error: "Name or price fields are not filled in" });
 
     const price = Number(priceStr);
 
@@ -60,9 +60,9 @@ export default async function handler(
       );
       res
         .status(200)
-        .json({ message: "Продукт добавлен", image: `/uploads/${fileName}` });
+        .json({ message: "Product added", image: `/uploads/${fileName}` });
     } catch (e) {
-      res.status(500).json({ error: "Ошибка при сохранении в базе" });
+      res.status(500).json({ error: "Error saving to database" });
     }
   });
 }

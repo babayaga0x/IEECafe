@@ -21,7 +21,7 @@ export default function CartPage() {
   if (loading) {
     return (
       <div className="cart-container">
-        <p>Загрузка корзины...</p>
+        <p>Loading cart...</p>
       </div>
     );
   }
@@ -31,10 +31,10 @@ export default function CartPage() {
       <div className="cart-container">
         <div className="empty-cart">
           <ShoppingCart size={64} />
-          <h2>Корзина пуста</h2>
-          <p>Добавьте товары из меню</p>
+          <h2>Cart is empty</h2>
+          <p>Add products from the menu</p>
           <Link href="/menu" className="btn-primary">
-            Перейти в меню
+            Go to menu
           </Link>
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function CartPage() {
   };
 
   const handleRemove = (itemId: number | string) => {
-    if (confirm("Удалить товар из корзины?")) {
+    if (confirm("Remove item from cart?")) {
       removeFromCart(itemId);
     }
   };
@@ -58,7 +58,7 @@ export default function CartPage() {
   return (
     <div className="cart-container">
       <div className="cart-header">
-        <h1>Корзина</h1>
+        <h1>Cart</h1>
       </div>
 
       <div className="cart-content">
@@ -74,7 +74,7 @@ export default function CartPage() {
                 />
                 <div className="cart-item-info">
                   <h3>{item.name}</h3>
-                  <p className="cart-item-price">{item.price}₽</p>
+                  <p className="cart-item-price">{item.price}$</p>
                 </div>
                 <div className="cart-item-quantity">
                   <button
@@ -97,12 +97,12 @@ export default function CartPage() {
                   </button>
                 </div>
                 <div className="cart-item-total">
-                  <span>{item.price * item.quantity}₽</span>
+                  <span>{item.price * item.quantity}$</span>
                 </div>
                 <button
                   onClick={() => handleRemove(itemKey)}
                   className="btn-remove"
-                  title="Удалить"
+                  title="Delete"
                 >
                   <Trash2 size={20} />
                 </button>
@@ -112,22 +112,22 @@ export default function CartPage() {
         </div>
 
         <div className="cart-summary">
-          <h2>Итого</h2>
+          <h2>Total</h2>
           <div className="summary-row">
-            <span>Товаров:</span>
-            <span>{getTotalItems()} шт.</span>
+            <span>Items:</span>
+            <span>{getTotalItems()} pcs.</span>
           </div>
           <div className="summary-row total">
-            <span>Сумма:</span>
-            <span>{getTotalPrice()}₽</span>
+            <span>Total:</span>
+            <span>{getTotalPrice()}$</span>
           </div>
 
           <button className="btn-checkout" onClick={() => setIsModalOpen(true)}>
-            Оформить заказ
+            Place your order
           </button>
 
           <Link href="/menu" className="btn-continue">
-            Продолжить покупки
+            Continue shopping
           </Link>
         </div>
       </div>
@@ -141,15 +141,15 @@ export default function CartPage() {
             >
               ×
             </button>
-            <h2>Оплата заказа</h2>
+            <h2>Pay for order</h2>
 
             <div className="modal-content">
-              <h3>Оплата картой</h3>
-              <input type="text" placeholder="Номер карты" />
+              <h3>Pay by card</h3>
+              <input type="text" placeholder="Card number" />
               <input type="text" placeholder="MM/YY" />
               <input type="text" placeholder="CVC" />
 
-              <h3>Или криптовалютой</h3>
+              <h3>Or cryptocurrency</h3>
               <select>
                 <option>Bitcoin</option>
                 <option>Ethereum</option>
@@ -160,9 +160,9 @@ export default function CartPage() {
                 <option>ERC-20</option>
                 <option>TRC-20</option>
               </select>
-              <input type="text" placeholder="Адрес Кошелька" />
+              <input type="text" placeholder="Wallet Address" />
 
-              <button className="btn-pay">Оплатить</button>
+              <button className="btn-pay">Pay</button>
             </div>
           </div>
         </div>

@@ -77,21 +77,21 @@ export default function AdminPage() {
     setProducts(data);
   };
 
-  if (loading) return <p>Загрузка...</p>;
+  if (loading) return <p>Loading...</p>;
 
   return (
     <div className="admin-page">
-      <h1>Админ-панель</h1>
+      <h1>Admin Panel</h1>
 
-      <h2>Добавить продукт</h2>
+      <h2>Add Product</h2>
       <div className="admin-form">
         <input
-          placeholder="Название"
+          placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          placeholder="Цена"
+          placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -102,17 +102,17 @@ export default function AdminPage() {
             if (e.target.files) setImageFile(e.target.files[0]);
           }}
         />
-        <button onClick={addProduct}>Добавить</button>
+        <button onClick={addProduct}>Add</button>
       </div>
 
-      <h2>Список продуктов</h2>
+      <h2>List products</h2>
       <div className="products-list">
         {products.map((p) => (
           <div key={p.id} className="product-row">
             <span className="product-name">{p.name}</span>
-            <span className="product-price">{p.price} ₽</span>
+            <span className="product-price">{p.price} $</span>
             <button className="delete-btn" onClick={() => deleteProduct(p.id)}>
-              Удалить
+              Delete
             </button>
           </div>
         ))}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "./CookieBanner.css";
+import Image from "next/image";
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(true);
@@ -10,11 +11,19 @@ export default function CookieBanner() {
 
   return (
     <div className="cookie-banner">
+      <Image
+        src="/cookie.svg"
+        alt="Cookie"
+        width={48}
+        height={48}
+        priority
+      ></Image>
       <p className="cookie-text">
-        Наша платформа использует файлы Cookies для лучшей работы сервиса
+        Our platform uses Cookies to ensure optimal performance. By continuing
+        to use the platform, you accept them.
       </p>
       <button className="cookie-button" onClick={() => setVisible(false)}>
-        Принять
+        Accept
       </button>
     </div>
   );

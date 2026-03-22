@@ -35,44 +35,44 @@ export default function ProductList({ products }: ProductListProps) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             quality={85}
             priority={index === 0}
-            fetchPriority={index === 0 ? "high" : undefined}
-            unoptimized={product.image.startsWith("/uploads/")}
+            /*unoptimized={product.image.startsWith("/uploads/")}*/
           />
           <div className="product-card-content">
             <h3 className="product-name">{product.name}</h3>
-            <p className="product-price">Цена: {product.price}₽</p>
+            <p className="product-price">Price: {product.price}$</p>
           </div>
 
           {product.id === 1 && (
             <p className="product-description">
-              Сэндвич с хрустящим хлебом, свежими овощами и нежным соусом.
+              A sandwich with crispy bread, fresh vegetables, and a delicate
+              sauce.
             </p>
           )}
           {product.id === 2 && (
             <p className="product-description">
-              Свежий салат из сезонных овощей с оливковым маслом и зеленью.
+              A fresh salad of seasonal vegetables with olive oil and herbs.
             </p>
           )}
           {product.id === 3 && (
             <p className="product-description">
-              Апельсиновый сок, выжатый прямо перед подачей, насыщенный и
-              свежий.
+              Orange juice, squeezed just before serving, is rich and fresh.
             </p>
           )}
           {product.id === 4 && (
             <p className="product-description">
-              Мясной суп с ароматными специями и свежей зеленью, как дома.
+              Meat soup with aromatic spices and With fresh herbs, just like
+              home.
             </p>
           )}
           {product.id === 5 && (
             <p className="product-description">
-              Пельмени с сочной начинкой из мяса, подаются с соевым соусом.
+              Dumplings with a juicy meat filling, served with soy sauce.
             </p>
           )}
           {product.id === 7 && (
             <p className="product-description">
-              Мясные котлеты, приготовленные по классическому рецепту с
-              золотистой корочкой.
+              Meat patties prepared according to the classic recipe with a
+              golden crust.
             </p>
           )}
 
@@ -81,7 +81,7 @@ export default function ProductList({ products }: ProductListProps) {
             onClick={() => handleAddToCart(product)}
           >
             <ShoppingCart size={18} />
-            <span>В корзину</span>
+            <span>Add to Cart</span>
           </button>
         </div>
       ))}
