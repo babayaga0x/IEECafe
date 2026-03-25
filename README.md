@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="389" height="79" alt="logo" src="https://github.com/user-attachments/assets/aa2186e2-c107-4928-a1e4-fe04951c6726" />
+</p>
+
 # ☕ MVEKafe - MVEK College Buffet
 
 The official website for MVEKafe - the buffet of MVEK (International East European College).  
@@ -128,6 +132,15 @@ If needed, update the browser data package:
 ```bash
 npm i baseline-browser-mapping@latest -D
 ```
+
+<img width="1902" height="913" alt="1" src="https://github.com/user-attachments/assets/2a37f421-fa65-466a-ab41-9be96775b642" />
+<img width="1904" height="918" alt="2" src="https://github.com/user-attachments/assets/f87ddbaa-6182-40b6-8a7e-ff905ce45894" />
+<img width="1920" height="918" alt="3" src="https://github.com/user-attachments/assets/0d945fe0-ba3a-4e4d-b268-d69a8dac0b6b" />
+<img width="1903" height="919" alt="4" src="https://github.com/user-attachments/assets/ffc14a9d-2c24-4a5e-982f-7d0452aaabce" />
+<img width="1242" height="919" alt="5" src="https://github.com/user-attachments/assets/aec9d48c-083c-4441-a477-697bf67d6a93" />
+<img width="1902" height="916" alt="6" src="https://github.com/user-attachments/assets/d6cfb66b-47b7-4b2b-a70f-c94fd1b185a8" />
+<img width="1904" height="915" alt="7" src="https://github.com/user-attachments/assets/9f05139c-0959-4ca0-88b0-dc7ff1693f69" />
+<img width="1904" height="915" alt="8" src="https://github.com/user-attachments/assets/da55a401-f670-4589-a9bf-edeb5b72e3c6" />
 
 ---
 
