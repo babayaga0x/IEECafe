@@ -15,20 +15,20 @@ export default async function handler(
 
     if (!email || !password || !name) {
       return res.status(400).json({
-        error: "Все поля обязательны",
+        error: "All fields are required",
       });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({
-        error: "Неправильный формат почты",
+        error: "Incorrect mail format",
       });
     }
 
     if (password.length < 6) {
       return res.status(400).json({
-        error: "Пароль должен содержать 6 символов",
+        error: "The password must contain 6 characters",
       });
     }
 
@@ -39,7 +39,7 @@ export default async function handler(
 
     if (Array.isArray(existingUsers) && existingUsers.length > 0) {
       return res.status(400).json({
-        error: "Данные пользователя не найдены",
+        error: "User data was not found",
       });
     }
 
@@ -59,12 +59,12 @@ export default async function handler(
         name: name,
         role: "student",
       },
-      message: "Регистрация успешна",
+      message: "Registration is successful",
     });
   } catch (error) {
-    console.error("Ошибка регистрации:", error);
+    console.error("Registration error:", error);
     return res.status(500).json({
-      error: "Ошибка сервера при регистрации",
+      error: "Server error during registration",
     });
   }
 }

@@ -4,37 +4,35 @@ import "./FaQ.css";
 const FAQ: React.FC = () => {
   return (
     <section className="faq">
-      <h2 className="faq-title">Часто задаваемые вопросы</h2>
+      <h2 className="faq-title">Frequently Asked Questions</h2>
 
       <div className="faq-item">
-        <p className="faq-question">Как сделать заказ в буфете онлайн?</p>
+        <p className="faq-question">How do I order from the buffet online?</p>
         <p className="faq-answer">
-          Выберите блюда в меню, добавьте их в корзину и оформите заказ через
-          форму на сайте.
+          Select dishes from the menu, add them to your cart, and place your
+          order using the form on the website.
         </p>
       </div>
 
       <div className="faq-item">
-        <p className="faq-question">Можно ли забрать заказ самостоятельно?</p>
+        <p className="faq-question">Can I pick up my order in person?</p>
         <p className="faq-answer">
-          Да, после подтверждения заказа вы можете прийти и забрать его в
-          указанное время.
+          Yes, after confirming your order, you can come and pick it up at the
+          specified time.
         </p>
       </div>
 
       <div className="faq-item">
-        <p className="faq-question">Какие способы оплаты доступны?</p>
+        <p className="faq-question">What payment methods are available?</p>
         <p className="faq-answer">
-          Мы принимаем оплату картой онлайн, наличными при самовывозе, а также
-          через мобильные платежи.
+          We accept card payments online, cash upon pickup, and mobile payments.
         </p>
       </div>
 
       <div className="faq-item">
-        <p className="faq-question">Есть ли доставка?</p>
+        <p className="faq-question">Do you deliver?</p>
         <p className="faq-answer">
-          Да, мы доставляем заказы в пределах района с помощью нашего
-          курьерского сервиса.
+          Yes, we deliver orders within the area using our courier service.
         </p>
       </div>
     </section>

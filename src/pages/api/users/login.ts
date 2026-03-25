@@ -9,7 +9,7 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Метод не разрешен" });
+    return res.status(405).json({ error: "method doesnt allow" });
   }
 
   try {
@@ -17,7 +17,7 @@ export default async function handler(
 
     if (!email || !password) {
       return res.status(400).json({
-        error: "Email и пароль обязательны",
+        error: "Email and pass are important",
       });
     }
 
@@ -27,7 +27,7 @@ export default async function handler(
 
     if (!Array.isArray(users) || users.length === 0) {
       return res.status(401).json({
-        error: "Неверный email или пароль",
+        error: "Incorrect email or pass",
       });
     }
 
@@ -37,7 +37,7 @@ export default async function handler(
 
     if (!isPasswordValid) {
       return res.status(401).json({
-        error: "Неверный email или пароль",
+        error: "Incorrect email or pass",
       });
     }
 
@@ -65,12 +65,12 @@ export default async function handler(
         name: user.name,
         role: user.role,
       },
-      message: "Вход выполнен успешно",
+      message: "Enter has been successfully",
     });
   } catch (error) {
-    console.error("Ошибка входа:", error);
+    console.error("Error enter:", error);
     return res.status(500).json({
-      error: "Ошибка сервера при входе",
+      error: "Error to enter",
     });
   }
 }

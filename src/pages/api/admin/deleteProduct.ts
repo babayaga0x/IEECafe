@@ -15,7 +15,7 @@ export default async function handler(
     const { id } = req.body;
 
     if (!id) {
-      return res.status(400).json({ error: "ID продукта не указан" });
+      return res.status(400).json({ error: "Product ID not specified" });
     }
 
     const [rows]: any = await db.query(
@@ -24,15 +24,15 @@ export default async function handler(
     );
 
     if (!rows || rows.length === 0) {
-      return res.status(404).json({ error: "Продукт не найден" });
+      return res.status(404).json({ error: "Product not found" });
     }
 
     const imagePath = rows[0].image;
 
-    // Удаляем из базы данных
+    // Delete from the database
     await db.query("DELETE FROM products WHERE id = ?", [id]);
 
-    // Удаляем файл изображения с диска
+    // Delete the image file from disk
     if (imagePath) {
       const fullPath = path.join(process.cwd(), "public", imagePath);
       if (fs.existsSync(fullPath)) {
@@ -40,9 +40,9 @@ export default async function handler(
       }
     }
 
-    res.status(200).json({ message: "Продукт успешно удалён" });
+    res.status(200).json({ message: "Product successfully deleted" });
   } catch (e) {
     console.error("Delete error:", e);
-    res.status(500).json({ error: "Ошибка при удалении продукта" });
+    res.status(500).json({ error: "Error deleting product" });
   }
 }

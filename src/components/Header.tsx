@@ -33,7 +33,7 @@ export default function Header() {
         setUser(null);
       }
     } catch (error) {
-      console.error("Ошибка проверки авторизации:", error);
+      console.error("Err check auth:", error);
       setUser(null);
     } finally {
       setIsLoading(false);
@@ -51,7 +51,7 @@ export default function Header() {
       router.push("/");
       router.refresh();
     } catch (error) {
-      console.error("Ошибка выхода:", error);
+      console.error("Error auth:", error);
     }
   };
 
@@ -63,23 +63,23 @@ export default function Header() {
             <div className="logo-icon">
               <Image
                 src="/Logo.png"
-                alt="МВЕКафе"
+                alt="MVECafe"
                 width={48}
                 height={48}
                 priority
               />
             </div>
-            <span className="logo-text">МВЕКафе</span>
+            <span className="logo-text">MVECafe</span>
           </Link>
 
           <nav className="nav">
-            <button onClick={() => router.push("/menu")}>Меню</button>
+            <button onClick={() => router.push("/menu")}>Menu</button>
             {user?.role === "admin" && (
               <button className="order" onClick={() => router.push("/admin")}>
-                Все товары
+                All supplies
               </button>
             )}
-            <button onClick={() => router.push("/about")}>О нас</button>
+            <button onClick={() => router.push("/about")}>About</button>
           </nav>
 
           <div className="header-actions">
@@ -113,7 +113,7 @@ export default function Header() {
                           onClick={handleLogout}
                         >
                           <LogOut size={18} />
-                          <span>Выйти</span>
+                          <span>Exit</span>
                         </button>
                       </div>
                     )}
@@ -129,7 +129,7 @@ export default function Header() {
             <button
               className="mobile-menu-button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Открыть меню"
+              aria-label="Open menu"
             >
               <Menu size={24} />
             </button>
@@ -144,7 +144,7 @@ export default function Header() {
             setIsMobileMenuOpen(false);
           }}
         >
-          Меню
+          Menu
         </button>
 
         {user?.role === "admin" && (
@@ -154,7 +154,7 @@ export default function Header() {
               setIsMobileMenuOpen(false);
             }}
           >
-            Все товары
+            All supplies
           </button>
         )}
 
@@ -164,7 +164,7 @@ export default function Header() {
             setIsMobileMenuOpen(false);
           }}
         >
-          О нас
+          About Us
         </button>
       </nav>
     </header>

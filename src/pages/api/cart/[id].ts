@@ -15,7 +15,7 @@ export default async function handler(
       const token = req.cookies.token;
 
       if (!token) {
-        return res.status(401).json({ error: "Не авторизован" });
+        return res.status(401).json({ error: "Not auth" });
       }
 
       const decoded = jwt.verify(token, JWT_SECRET) as any;
@@ -29,7 +29,7 @@ export default async function handler(
       );
 
       if (items.length === 0) {
-        return res.status(404).json({ error: "Продукт не найден" });
+        return res.status(404).json({ error: "doesnt seem" });
       }
 
       const orderId = items[0].order_id;
@@ -43,24 +43,24 @@ export default async function handler(
         [orderId, orderId],
       );
 
-      return res.status(200).json({ message: "Продукт удалён" });
+      return res.status(200).json({ message: "Item deleted" });
     } catch (error) {
-      console.error("Ошибка удаления:", error);
-      return res.status(500).json({ error: "Ошибка сервера" });
+      console.error("Error deleting:", error);
+      return res.status(500).json({ error: "Error server" });
     }
   } else if (req.method === "PATCH") {
     try {
       const token = req.cookies.token;
 
       if (!token) {
-        return res.status(401).json({ error: "Не авторизован" });
+        return res.status(401).json({ error: "Dont auth" });
       }
 
       const decoded = jwt.verify(token, JWT_SECRET) as any;
       const { quantity } = req.body;
 
       if (quantity < 1) {
-        return res.status(400).json({ error: "Количество должно быть >= 1" });
+        return res.status(400).json({ error: "quantity must be >= 1" });
       }
 
       const [items]: any = await db.execute(
@@ -72,7 +72,7 @@ export default async function handler(
       );
 
       if (items.length === 0) {
-        return res.status(404).json({ error: "Продукт не найден" });
+        return res.status(404).json({ error: "product doesnt seem" });
       }
 
       const orderId = items[0].order_id;
@@ -89,10 +89,10 @@ export default async function handler(
         [orderId, orderId],
       );
 
-      return res.status(200).json({ message: "Количество обновлено" });
+      return res.status(200).json({ message: "quantity updated" });
     } catch (error) {
-      console.error("Ошибка обновления:", error);
-      return res.status(500).json({ error: "Ошибка сервера" });
+      console.error("update error:", error);
+      return res.status(500).json({ error: "error server" });
     }
   } else {
     res.setHeader("Allow", ["DELETE", "PATCH"]);

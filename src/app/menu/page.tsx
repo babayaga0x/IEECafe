@@ -23,7 +23,7 @@ export default function HomePage() {
 
   return (
     <div className="app-container">
-      <h1 className="app-title">Меню МВЕКафе</h1>
+      <h1 className="app-title">MVECafe Menu</h1>
       <ProductList products={products} />
       <CookieBanner />
     </div>

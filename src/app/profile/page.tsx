@@ -43,10 +43,10 @@ export default function ProfilePage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Ошибка регистрации");
+        throw new Error(data.error || "Registration error");
       }
 
-      setSuccess("Регистрация успешна! Перенаправление...");
+      setSuccess("Registration successful! Redirect...");
 
       localStorage.setItem("user", JSON.stringify(data.user));
 
@@ -81,10 +81,10 @@ export default function ProfilePage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Ошибка входа");
+        throw new Error(data.error || "Login error");
       }
 
-      setSuccess("Вход выполнен! Перенаправление...");
+      setSuccess("Logged in! Redirecting...");
 
       localStorage.setItem("user", JSON.stringify(data.user));
 
@@ -112,7 +112,7 @@ export default function ProfilePage() {
                 setSuccess("");
               }}
             >
-              Вход
+              Entrance
             </button>
             <button
               className={`tab ${!isLogin ? "active" : ""}`}
@@ -122,7 +122,7 @@ export default function ProfilePage() {
                 setSuccess("");
               }}
             >
-              Регистрация
+              Registration
             </button>
           </div>
 
@@ -131,7 +131,7 @@ export default function ProfilePage() {
 
           {isLogin ? (
             <form onSubmit={handleLogin} className="auth-form">
-              <h2>Вход в аккаунт</h2>
+              <h2>Log in to your account</h2>
 
               <div className="form-group">
                 <label htmlFor="login-email">Email</label>
@@ -147,7 +147,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="login-password">Пароль</label>
+                <label htmlFor="login-password">Password</label>
                 <input
                   type="password"
                   id="login-password"
@@ -164,15 +164,15 @@ export default function ProfilePage() {
                 className="submit-button"
                 disabled={isLoading}
               >
-                {isLoading ? "Загрузка..." : "Войти"}
+                {isLoading ? "Loading..." : "Login"}
               </button>
             </form>
           ) : (
             <form onSubmit={handleRegister} className="auth-form">
-              <h2>Создать аккаунт</h2>
+              <h2>Create an account</h2>
 
               <div className="form-group">
-                <label htmlFor="register-name">Имя</label>
+                <label htmlFor="register-name">Name</label>
                 <input
                   type="text"
                   id="register-name"
@@ -180,7 +180,7 @@ export default function ProfilePage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Иван Иванов"
+                  placeholder="Ivan Ivanov"
                 />
               </div>
 
@@ -198,7 +198,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="register-password">Пароль</label>
+                <label htmlFor="register-password">Password</label>
                 <input
                   type="password"
                   id="register-password"
@@ -207,7 +207,7 @@ export default function ProfilePage() {
                   onChange={handleChange}
                   required
                   minLength={6}
-                  placeholder="Минимум 6 символов"
+                  placeholder="Minimum 6 characters"
                 />
               </div>
 
@@ -216,7 +216,7 @@ export default function ProfilePage() {
                 className="submit-button"
                 disabled={isLoading}
               >
-                {isLoading ? "Загрузка..." : "Зарегистрироваться"}
+                {isLoading ? "Loading..." : "Register"}
               </button>
             </form>
           )}

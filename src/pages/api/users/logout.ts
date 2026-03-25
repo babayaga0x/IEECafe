@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Метод не разрешен" });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   const cookie = serialize("token", "", {
@@ -20,6 +20,6 @@ export default async function handler(
   res.setHeader("Set-Cookie", cookie);
 
   return res.status(200).json({
-    message: "Выход выполнен успешно",
+    message: "Exit completed successfully",
   });
 }
