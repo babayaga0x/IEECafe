@@ -2,7 +2,7 @@
   <img width="389" height="79" alt="logo" src="https://github.com/user-attachments/assets/aa2186e2-c107-4928-a1e4-fe04951c6726" />
 </p>
 
-# ☕ MVEKafe - MVEK College Buffet
+# ☕ MVECafe - MVEC College Buffet
 
 The official website for MVEKafe - the buffet of MVEK (International East European College).  
 Built with Next.js 15, React 19, and TypeScript.
